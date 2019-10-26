@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Layout, Menu, Breadcrumb } from 'antd';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    const { Header, Content, Footer } = Layout;
+    return (
+        <Layout className="layout">
+            <Header>
+                <div className="logo" />
+                <Menu
+                    theme="dark"
+                    mode="horizontal"
+                    defaultSelectedKeys={['2']}
+                    style={{ lineHeight: '64px' }}
+                >
+                    <Menu.Item key="1">Test1</Menu.Item>
+                </Menu>
+            </Header>
 
+            <Content className={"content"}>
+                {/*навигационная цепочка*/}
+                <Breadcrumb style={{ margin: '16px 0' }}>
+                    <Breadcrumb.Item>Home</Breadcrumb.Item>
+                    <Breadcrumb.Item>List</Breadcrumb.Item>
+                    <Breadcrumb.Item>App</Breadcrumb.Item>
+                </Breadcrumb>
+                <div className={"blockContent"}>Content</div>
+            </Content>
+            <Footer className={"footer"}>2019</Footer>
+        </Layout>
+    );
+}
 export default App;
