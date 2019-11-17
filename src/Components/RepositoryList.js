@@ -44,7 +44,6 @@ const RepositoryList = ({
                 <div>
                     <Card className={classes.card}>
                         <li className={rowClassName.join(' ')} key={node.id}>
-
                             <CardContent>
                                 <Button href={node.url}>{node.name}</Button>
                             </CardContent>
@@ -57,7 +56,9 @@ const RepositoryList = ({
                                 <Button>
                                     {node.viewerHasStarred ? (<UnStar node={node}/>):(<Star node={node}/>) }
                                 </Button>
-
+                                <div>
+                                    {node.stargazers.totalCount}
+                                </div>
                             </CardActions>
                         </li>
                     </Card>

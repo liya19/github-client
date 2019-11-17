@@ -35,6 +35,9 @@ export const GET_REPOSITORIES_OF_ORGANIZATION = gql`
             name
             url
             viewerHasStarred
+            stargazers{
+            totalCount
+            }
           }
         }
       }
