@@ -1,14 +1,17 @@
 import {Mutation} from "react-apollo";
 import React from "react";
-import {STAR_REPOSITORY, GET_REPOSITORIES_OF_ORGANIZATION} from './App';
+import {STAR_REPOSITORY} from './App';
+import {Icon} from "@material-ui/core";
 
-let Star = ({id}) => (
-    <Mutation mutation={STAR_REPOSITORY} variables={{id}}>
+const Star = ({node}) => {
+const {id} = node;
+return <Mutation mutation={STAR_REPOSITORY} variables={{id}}>
         {starRepository => (
-            <button type="button" onClick={starRepository}>
-                Star
-            </button>
+            <Icon color= "action"
+                        onClick={starRepository}>
+                favorite
+            </Icon>
         )}
     </Mutation>
-);
+};
 export default Star;

@@ -1,12 +1,13 @@
 import React from "react";
 import './App';
+import Button from "@material-ui/core/Button";
 
 let Select = ({id, isSelected, toggleSelectRepository}) => (
-    <button
+    <Button
         type="button"
         onClick={() => toggleSelectRepository(id, isSelected)}
     >
         {isSelected ? 'Unselect' : 'Select'}
-    </button>
+    </Button>
 );
 export default Select;
