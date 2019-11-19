@@ -1,5 +1,5 @@
 import React from "react";
-import './App';
+import '../App';
 import Button from "@material-ui/core/Button";
 
 let Select = ({id, isSelected, toggleSelectRepository}) => (

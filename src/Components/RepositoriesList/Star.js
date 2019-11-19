@@ -1,6 +1,6 @@
 import {Mutation} from "react-apollo";
 import React from "react";
-import {STAR_REPOSITORY} from './App';
+import {STAR_REPOSITORY} from '../App';
 import {Icon} from "@material-ui/core";
 
 const Star = ({node}) => {

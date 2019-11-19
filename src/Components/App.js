@@ -1,7 +1,17 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
-import Repositories from "./Repositories";
+import Repositories from "./RepositoriesList/Repositories";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import Auth from "./Auth/Auth";
+import Profile from "./Profile/Profile";
+import Main from "./MainPage/Main";
+import RepositoryList from "./RepositoriesList/RepositoryList";
 
 export const STAR_REPOSITORY = gql`
   mutation($id: ID!) {
@@ -52,7 +62,21 @@ const App = () => (
                 return <div>Loading ...</div>;
             }
             return (
-               <Repositories repositories={organization.repositories}/>
+            <Router>
+                    <Switch>
+                        <Route path="/repositoryList"
+                               render={()=> <Repositories repositories={organization.repositories}/>}/>
+                        <Route path="/auth">
+                            <Auth />
+                        </Route>
+                        <Route path="/profile">
+                            <Profile />
+                        </Route>
+                        <Route path="/">
+                            <Main />
+                        </Route>
+                    </Switch>
+            </Router>
             );
         }}
     </Query>

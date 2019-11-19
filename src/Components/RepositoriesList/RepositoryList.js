@@ -1,5 +1,5 @@
 import React from "react";
-import './App';
+import '../App';
 import Select from "./Select";
 import Star from "./Star";
 import makeStyles from "@material-ui/core/styles/makeStyles";

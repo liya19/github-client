@@ -1,7 +1,7 @@
 import {Mutation} from "react-apollo";
 import React from "react";
 import {Icon} from "@material-ui/core";
-import {UNSTAR_REPOSITORY} from './App';
+import {UNSTAR_REPOSITORY} from '../App';
 
 const UnStar = ({node}) => {
     const {id} = node;

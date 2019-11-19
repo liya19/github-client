@@ -25,5 +25,6 @@ class Repositories extends React.Component {
             />
         );
     }
+
 }
 export default Repositories;
