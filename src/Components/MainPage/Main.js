@@ -2,9 +2,9 @@ import React from "react";
 import main1 from "../../image/main1.png"
 import {Typography} from "@material-ui/core";
 
-export default class Main extends React.Component{
-        render() {
-        return(
+export default class Main extends React.Component {
+    render() {
+        return (
             <div>
                 <Typography style={{
                     textAlign: 'center',
@@ -12,12 +12,12 @@ export default class Main extends React.Component{
                     fontSize: '50px',
                     fontWeight: 'medium'
                 }}>Welcome to Git</Typography>
-            <div>
-                <img src={main1} width={'1250'} height={'594'} style={{
-                    display: 'block',
-                    margin: '0 auto'
-                }}/>
-            </div>
+                <div>
+                    <img src={main1} width={'1250'} height={'594'} style={{
+                        display: 'block',
+                        margin: '0 auto'
+                    }}/>
+                </div>
             </div>
         )
     }

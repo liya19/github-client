@@ -1,24 +1,19 @@
 .row {
-  padding: 5px;
+    padding: 5px;
 }
 
 .row:hover {
-  background-color: lightblue;
+    background-color: lightblue;
 }
 
 .row_selected {
-  background-color: orange;
+    background-color: orange;
 }
 
 .row_selected:hover {
-  background-color: orange;
+    background-color: orange;
 }
 
-li{
-  list-style-type: none;
-}
-.load {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
+li {
+    list-style-type: none;
 }
