@@ -1,17 +1,21 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
+import styles from './App.css';
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 import Repositories from "./RepositoriesList/Repositories";
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
 import Auth from "./Auth/Auth";
 import Profile from "./Profile/Profile";
 import Main from "./MainPage/Main";
-import RepositoryList from "./RepositoriesList/RepositoryList";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import ButtonAppBar from "./Header/Header";
 
 export const STAR_REPOSITORY = gql`
   mutation($id: ID!) {
@@ -19,6 +23,9 @@ export const STAR_REPOSITORY = gql`
       starrable {
         id
         viewerHasStarred
+             stargazers{
+            totalCount
+            }
       }
     }
   }
@@ -30,6 +37,9 @@ export const UNSTAR_REPOSITORY = gql`
       starrable {
         id
         viewerHasStarred
+         stargazers{
+            totalCount
+            }
       }
     }
   }
@@ -45,7 +55,7 @@ export const GET_REPOSITORIES_OF_ORGANIZATION = gql`
             name
             url
             viewerHasStarred
-            stargazers{
+             stargazers{
             totalCount
             }
           }
@@ -59,24 +69,35 @@ const App = () => (
     <Query query={GET_REPOSITORIES_OF_ORGANIZATION}>
         {({data: {organization}, loading}) => {
             if (loading || !organization) {
-                return <div>Loading ...</div>;
+                return <div style={{
+                    position: 'absolute', left: '50%', top: '50%',
+                    transform: 'translate(-50%, -50%)'
+                }}>
+                    <Loader
+                    type="Oval"
+                    color="#00BFFF"
+                    height={100}
+                    width={100}
+                    timeout={3000}
+                /></div>
             }
             return (
-            <Router>
+                <Router>
+                    <ButtonAppBar/>
                     <Switch>
                         <Route path="/repositoryList"
-                               render={()=> <Repositories repositories={organization.repositories}/>}/>
+                               render={() => <Repositories repositories={organization.repositories}/>}/>
                         <Route path="/auth">
-                            <Auth />
+                            <Auth/>
                         </Route>
                         <Route path="/profile">
-                            <Profile />
+                            <Profile/>
                         </Route>
                         <Route path="/">
-                            <Main />
+                            <Main/>
                         </Route>
                     </Switch>
-            </Router>
+                </Router>
             );
         }}
     </Query>

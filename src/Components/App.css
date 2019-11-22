@@ -17,3 +17,8 @@
 li{
   list-style-type: none;
 }
+.load {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}

@@ -5,6 +5,7 @@ import Star from "./Star";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {Button, Card, CardActions, CardContent} from "@material-ui/core";
 import UnStar from "./UnStar";
+import ButtonAppBar from "../Header/Header";
 
 
 const useStyles = makeStyles({
@@ -41,28 +42,25 @@ const RepositoryList = ({
             }
 
             return (
-                <div>
-                    <Card className={classes.card}>
-                        <li className={rowClassName.join(' ')} key={node.id}>
-                            <CardContent>
-                                <Button href={node.url}>{node.name}</Button>
-                            </CardContent>
-                            <CardActions>
-                                <Select
-                                    id={node.id}
-                                    isSelected={isSelected}
-                                    toggleSelectRepository={toggleSelectRepository}
-                                />
-                                <Button>
-                                    {node.viewerHasStarred ? (<UnStar node={node}/>):(<Star node={node}/>) }
-                                </Button>
-                                <div>
-                                    {node.stargazers.totalCount}
-                                </div>
-                            </CardActions>
-                        </li>
-                    </Card>
-                </div>
+                    <div style={{
+                        position: 'center'
+                    }}>
+                        <Card className={classes.card}>
+                            <li className={rowClassName.join(' ')} key={node.id}>
+                                <CardContent>
+                                    <Button href={node.url}>{node.name}</Button>
+                                </CardContent>
+                                <CardActions>
+                                    <Button>
+                                        {node.viewerHasStarred ? (<UnStar node={node}/>) : (<Star node={node}/>)}
+                                        {node.stargazers.totalCount}
+                                    </Button>
+                                    <div>
+                                    </div>
+                                </CardActions>
+                            </li>
+                        </Card>
+                    </div>
             );
         })}
     </ul>
