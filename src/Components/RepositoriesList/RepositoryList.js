@@ -10,8 +10,17 @@ import ButtonAppBar from "../Header/Header";
 
 const useStyles = makeStyles({
     card: {
-        minWidth: 275,
+        width: 410,
+        height: 163,
+        margin: 15,
+        float:'left',
+        borderRadius: '4px',
+        background: '#fff',
+        boxShadow:'0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05)',
+        cursor: 'pointer',
+        transition: '.3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12)'
     },
+
     bullet: {
         display: 'inline-block',
         margin: '0 2px',
@@ -42,16 +51,17 @@ const RepositoryList = ({
             }
 
             return (
-                    <div style={{
-                        position: 'center'
-                    }}>
-                        <Card className={classes.card}>
-                            <li className={rowClassName.join(' ')} key={node.id}>
+                <div style={{
+                    width: '1400px',
+                    margin: '0 auto'
+                }}>
+                <Card className={classes.card}>
+                            <li className={rowClassName.join(' ')} key={node.id} >
                                 <CardContent>
                                     <Button href={node.url}>{node.name}</Button>
                                 </CardContent>
                                 <CardActions>
-                                    <Button>
+                                    <Button style={{marginTop: '34px'}}>
                                         {node.viewerHasStarred ? (<UnStar node={node}/>) : (<Star node={node}/>)}
                                         {node.stargazers.totalCount}
                                     </Button>
@@ -60,7 +70,7 @@ const RepositoryList = ({
                                 </CardActions>
                             </li>
                         </Card>
-                    </div>
+                </div>
             );
         })}
     </ul>

@@ -13,9 +13,9 @@ export default class Main extends React.Component {
                     fontWeight: 'medium'
                 }}>Welcome to Git</Typography>
                 <div>
-                    <img src={main1} width={'1250'} height={'594'} style={{
+                    <img src={main1} width={'1250'} height={'596'} style={{
                         display: 'block',
-                        margin: '0 auto'
+                        margin: '0 auto',
                     }}/>
                 </div>
             </div>
