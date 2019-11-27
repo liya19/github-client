@@ -7,7 +7,7 @@
 
 - Generate token on github -> `Settings / Developer settings` - *Personal access tokens*, when you 
 select all items. <br>
-Create file `.env` in `src`, paste <br>
+Create file `.env` in `github-client`, paste <br>
 ```REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN=(your token)```
 
 - ### `npm start` 
