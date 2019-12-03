@@ -4,27 +4,7 @@ import {GET_LOGIN, GET_USER} from '../App';
 import Repositories from "../RepositoriesList/Repositories";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
-
-const UserRepositories = ({login}) => {
-    return (
-        <Query query={GET_USER} variables={{login}}>
-            {({data: {user}, loading}) => {
-                if (loading || !user) {
-                    return <div style={{position: 'fixed', top: '50%', left: '50%'}}>
-
-                    </div>
-                }
-                return (
-                    <Paper>
-                        <Repositories repositories={user.repositories} style ={{
-
-                        }}/>
-                    </Paper>
-                );
-            }}
-        </Query>
-    )
-};
+import Avatar from "@material-ui/core/Avatar";
 
 
 const Profile = () => {
@@ -49,14 +29,25 @@ const Profile = () => {
                         marginTop: '20px',
                         marginLeft: '30px'
                     }}>
-                        <Typography variant="h5" component="h3">
+                        <Avatar src={viewer.avatarUrl}
+                                variant="rounded"
+                                style={{
+                                    width: '300px',
+                                    height: '340px'
+                                }}/>
+                        <Typography variant="h5" componxent="h3">
                             {viewer.name}
                         </Typography>
                         <Typography component="p">
                             {viewer.login}
                         </Typography>
                     </Paper>
-                    <UserRepositories login={viewer.login}/>
+
+
+                    <Paper>
+                        <Repositories repositories={viewer.repositories} style ={{
+                        }}/>
+                    </Paper>
                 </div>
             );
         }}

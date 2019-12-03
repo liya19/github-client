@@ -43,8 +43,9 @@ export default function ButtonAppBar() {
                     background: "#2088ff"
                 }}>
                     <Typography variant="h6" className={classes.title}>
-                        <a href={Main}>GHC</a>
+                        <Button  color='inherit' href="/">GHC</Button>
                     </Typography>
+                    <Button color='inherit' href="/profile">Profile</Button>
                     <Button color='inherit' onClick={handleClickOpen}>Login</Button>
                 </Toolbar>
             </AppBar>
