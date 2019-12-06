@@ -6,31 +6,6 @@ import TextField from "@material-ui/core/TextField";
 import UserList from "./UserList";
 import Loading from "../Loading";
 
-
-// export const SEARCH = gql`
-// query($queryString: String!) {
-//   search(query: $queryString, type: REPOSITORY, first: 10) {
-//     repositoryCount
-//     edges {
-//       node {
-//         ... on Repository {
-//         id
-//           name
-//           descriptionHTML
-//           stargazers {
-//             totalCount
-//           }
-//           forks {
-//             totalCount
-//           }
-//           updatedAt
-//         }
-//       }
-//     }
-//   }
-// }
-// `;
-
 export const SEARCH = gql`
 query($queryString: String!) {
   search(query: $queryString, type: USER, first: 10) {

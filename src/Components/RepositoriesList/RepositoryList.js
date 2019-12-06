@@ -4,6 +4,8 @@ import Star from "./Star";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {Button, Card, CardActions, CardContent} from "@material-ui/core";
 import UnStar from "./UnStar";
+import Link from "@material-ui/core/Link";
+import Typography from "@material-ui/core/Typography";
 
 
 export const useStyles = makeStyles({
@@ -32,10 +34,10 @@ export const useStyles = makeStyles({
     },
 });
 
-const RepositoryList = ({repositories,}) => {
+const RepositoryList = ({data}) => {
     const classes = useStyles();
     return <ul>
-        {repositories.edges.map(({node}) => {
+        {data.search.edges.map(({node}) => {
             return (
                 <div style={{
                     width: '1400px',
@@ -44,7 +46,10 @@ const RepositoryList = ({repositories,}) => {
                 <Card className={classes.card}>
                             <li key={node.id} >
                                 <CardContent>
-                                    <Button href={node.url}>{node.name}</Button>
+                                    <Link  style={{
+                                        fontSize:24
+                                    }}
+                                        to={`/repository/${node.url}`}>{node.name}</Link>
                                 </CardContent>
                                 <CardActions>
                                     <Button style={{marginTop: '34px'}}>

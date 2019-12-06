@@ -18,6 +18,7 @@ import Main from "./MainPage/Main";
 import ButtonAppBar from "./Header/Header";
 import SearchByUser from "./Search/SearchByUser";
 import Toolbar from "@material-ui/core/Toolbar";
+import SearchByRepository from "./Search/SearchByRepositories";
 
 export const STAR_REPOSITORY = gql`
   mutation($id: ID!) {
@@ -105,6 +106,9 @@ const App = () => {
                 </Route>
                 <Route path="/searchUser">
                 <SearchByUser/>
+                </Route>
+                <Route path="/searchRepository">
+                    <SearchByRepository/>
                 </Route>
                 <Route path="/profile">
                     <Profile/>
