@@ -14,6 +14,7 @@ import Main from "./MainPage/Main";
 import ButtonAppBar from "./Header/Header";
 import SearchByUser from "./Search/SearchByUser";
 import SearchByRepository from "./Search/SearchByRepositories";
+import User from "./User/User";
 
 export const STAR_REPOSITORY = gql`
   mutation($id: ID!) {
@@ -98,6 +99,11 @@ const App = () => {
                 </Route>
                 <Route path="/searchUser">
                 <SearchByUser/>
+                </Route>
+                <Route path="/repository">
+                </Route>
+                <Route path="/user/:id">
+                    <User/>
                 </Route>
                 <Route path="/searchRepository">
                     <SearchByRepository/>

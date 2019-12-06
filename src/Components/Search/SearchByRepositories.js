@@ -18,6 +18,7 @@ query($queryString: String!) {
         id
           name
           descriptionHTML
+          viewerHasStarred
           stargazers {
             totalCount
           }

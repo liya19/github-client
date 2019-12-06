@@ -8,7 +8,7 @@ import Loading from "../Loading";
 import RepositoryList from "../RepositoriesList/RepositoryList";
 
 
-const Profile = () => {
+const User = () => {
     return <Query query={GET_LOGIN}>
 
         {({data: {viewer}, loading}) => {
@@ -38,7 +38,6 @@ const Profile = () => {
                             {viewer.login}
                         </Typography>
                     </Paper>
-
                     <Paper>
                         <Paper>
                             <RepositoryList data={viewer.repositories}/>
@@ -50,8 +49,6 @@ const Profile = () => {
     </Query>
 };
 
-
-
-export default Profile;
+export default User;
 
 
