@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-
 import gql from "graphql-tag";
 import TextField from "@material-ui/core/TextField";
 import Query from "react-apollo/Query";
 import Loading from "../Loading";
-import RepositoryList from "../RepositoriesList/RepositoryList";
+import RepoList from "./RepoList";
+
 
 
 
@@ -48,7 +48,7 @@ const SearchByRepository = () => {
             <Loading/>
         );
         if (error) return <p>Something went wrong...</p>;
-        return <RepositoryList data={data}/>
+        return <RepoList data={data}/>
        }}
 
       </Query>

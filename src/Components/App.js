@@ -1,12 +1,8 @@
 import React from 'react';
 import gql from 'graphql-tag';
-import {Query} from 'react-apollo';
-import styles from './App.css';
-import Loader from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 
-import Repositories from "./RepositoriesList/Repositories";
 import {
     BrowserRouter as Router,
     Switch,
@@ -17,7 +13,6 @@ import Profile from "./Profile/Profile";
 import Main from "./MainPage/Main";
 import ButtonAppBar from "./Header/Header";
 import SearchByUser from "./Search/SearchByUser";
-import Toolbar from "@material-ui/core/Toolbar";
 import SearchByRepository from "./Search/SearchByRepositories";
 
 export const STAR_REPOSITORY = gql`
@@ -98,9 +93,6 @@ const App = () => {
         <Router>
             <ButtonAppBar/>
             <Switch>
-                {/*<Route path="/repositoryList"*/}
-                {/*       render={() => <Repositories repositories={organization.repositories}/>}*/}
-                {/*    />*/}
                 <Route path="/auth">
                     <Auth/>
                 </Route>

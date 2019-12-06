@@ -1,11 +1,11 @@
 import {Query} from "react-apollo";
 import React from "react";
 import {GET_LOGIN} from '../App';
-import Repositories from "../RepositoriesList/Repositories";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Avatar from "@material-ui/core/Avatar";
 import Loading from "../Loading";
+import RepositoryList from "../RepositoriesList/RepositoryList";
 
 
 const Profile = () => {
@@ -41,8 +41,9 @@ const Profile = () => {
 
 
                     <Paper>
-                        <Repositories repositories={viewer.repositories} style ={{
-                        }}/>
+                        <Paper>
+                            <RepositoryList data={viewer.repositories}/>
+                        </Paper>
                     </Paper>
                 </div>
             );

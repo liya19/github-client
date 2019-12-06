@@ -1,10 +1,10 @@
 import React from "react";
 import '../App';
-import Star from "./Star";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {Button, Card, CardActions, CardContent} from "@material-ui/core";
-import UnStar from "./UnStar";
 import Link from "@material-ui/core/Link";
+import UnStar from "../RepositoriesList/UnStar";
+import Star from "../RepositoriesList/Star";
 
 
 export const useStyles = makeStyles({
@@ -33,10 +33,10 @@ export const useStyles = makeStyles({
     },
 });
 
-const RepositoryList = ({data}) => {
+const RepoList = ({data}) => {
     const classes = useStyles();
     return <ul>
-        {data.edges.map(({node}) => {
+        {data.search.edges.map(({node}) => {
             return (
                 <div style={{
                     width: '1400px',
@@ -65,4 +65,4 @@ const RepositoryList = ({data}) => {
         })}
     </ul>
 };
-export default RepositoryList;
+export default RepoList;
