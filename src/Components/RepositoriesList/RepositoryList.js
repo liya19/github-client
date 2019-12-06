@@ -1,14 +1,12 @@
 import React from "react";
 import '../App';
-import Select from "./Select";
 import Star from "./Star";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {Button, Card, CardActions, CardContent} from "@material-ui/core";
 import UnStar from "./UnStar";
-import ButtonAppBar from "../Header/Header";
 
 
-const useStyles = makeStyles({
+export const useStyles = makeStyles({
     card: {
         width: 410,
         height: 163,
@@ -34,29 +32,17 @@ const useStyles = makeStyles({
     },
 });
 
-const RepositoryList = ({
-                            repositories,
-                            selectedRepositoryIds,
-                            toggleSelectRepository,
-                        }) => {
+const RepositoryList = ({repositories,}) => {
     const classes = useStyles();
     return <ul>
         {repositories.edges.map(({node}) => {
-            const isSelected = selectedRepositoryIds.includes(node.id);
-
-            const rowClassName = ['row'];
-
-            if (isSelected) {
-                rowClassName.push('row_selected');
-            }
-
             return (
                 <div style={{
                     width: '1400px',
                     margin: '0 auto'
                 }}>
                 <Card className={classes.card}>
-                            <li className={rowClassName.join(' ')} key={node.id} >
+                            <li key={node.id} >
                                 <CardContent>
                                     <Button href={node.url}>{node.name}</Button>
                                 </CardContent>

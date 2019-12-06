@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import Main from "../MainPage/Main";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import TextField from "@material-ui/core/TextField";
 import DialogActions from "@material-ui/core/DialogActions";
+import SearchByUser from "../Search/SearchByUser";
 
 
 const useStyles = makeStyles(theme => ({
@@ -26,6 +26,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function ButtonAppBar() {
     const [open, setOpen] = React.useState(false);
+
+
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -45,6 +47,8 @@ export default function ButtonAppBar() {
                     <Typography variant="h6" className={classes.title}>
                         <Button  color='inherit' href="/">GHC</Button>
                     </Typography>
+
+                    <Button color='inherit' href="/searchUser">Search User</Button>
                     <Button color='inherit' href="/profile">Profile</Button>
                     <Button color='inherit' onClick={handleClickOpen}>Login</Button>
                 </Toolbar>
