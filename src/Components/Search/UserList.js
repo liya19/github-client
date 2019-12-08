@@ -3,13 +3,13 @@ import {CardContent} from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
+import { Link } from 'react-router-dom';
 import Avatar from "@material-ui/core/Avatar";
 import {useStyles} from "../RepositoriesList/RepositoryList";
 
-
-
 const UserList = ({data}) => {
+    console.log(data);
+    if (!data.search) return <h1>We couldn’t find</h1>;
     return <ul>
         {data.search.edges.map(({node}) => {
             return (

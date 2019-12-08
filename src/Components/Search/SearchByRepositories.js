@@ -6,8 +6,6 @@ import Loading from "../Loading";
 import RepoList from "./RepoList";
 
 
-
-
 export const SEARCHREPO = gql`
 query($queryString: String!) {
   search(query: $queryString, type: REPOSITORY, first: 10) {
@@ -17,6 +15,10 @@ query($queryString: String!) {
         ... on Repository {
         id
           name
+          owner{
+              id
+              login
+          }
           descriptionHTML
           viewerHasStarred
           stargazers {

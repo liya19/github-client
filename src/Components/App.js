@@ -1,8 +1,6 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-
-
 import {
     BrowserRouter as Router,
     Switch,
@@ -14,7 +12,8 @@ import Main from "./MainPage/Main";
 import ButtonAppBar from "./Header/Header";
 import SearchByUser from "./Search/SearchByUser";
 import SearchByRepository from "./Search/SearchByRepositories";
-import User from "./User/User";
+import User from "./Search/User";
+import Repository from "./Search/Repository";
 
 export const STAR_REPOSITORY = gql`
   mutation($id: ID!) {
@@ -69,26 +68,6 @@ export const UNSTAR_REPOSITORY = gql`
   }
 `;
 
-export const GET_REPOSITORIES_OF_ORGANIZATION = gql`
-  {
-    organization(login: "the-road-to-learn-react") {
-      repositories(first: 20) {
-        edges {
-          node {
-            id
-            name
-            url
-            viewerHasStarred
-             stargazers{
-            totalCount
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
 const App = () => {
     return (
         <Router>
@@ -97,13 +76,14 @@ const App = () => {
                 <Route path="/auth">
                     <Auth/>
                 </Route>
+                <Route path="/user/:id">
+                    <User/>
+                </Route>
                 <Route path="/searchUser">
                 <SearchByUser/>
                 </Route>
-                <Route path="/repository">
-                </Route>
-                <Route path="/user/:id">
-                    <User/>
+                <Route path="/repository/:login/:name">
+                    <Repository/>
                 </Route>
                 <Route path="/searchRepository">
                     <SearchByRepository/>

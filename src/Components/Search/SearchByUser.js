@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-
 import gql from "graphql-tag";
 import Query from "react-apollo/Query";
 import TextField from "@material-ui/core/TextField";
@@ -28,10 +27,11 @@ query($queryString: String!) {
 const SearchByUser = () => {
     const [input, setInput] = useState("");
     return (<div>
-            <TextField id="standard-basic" label="Search" value={input}
+            <TextField id="standard-basic"
+                       label="Search"
+                       value={input}
                        onChange={event => {
                            setInput(event.target.value);
-
                        }}> </TextField>
 
             <Query query={SEARCH} variables={{queryString: input}}>

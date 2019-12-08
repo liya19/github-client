@@ -1,7 +1,6 @@
 import React from "react";
 import main1 from "../../image/main1.png"
 import {Typography} from "@material-ui/core";
-import Loading from "../Loading";
 
 export default class Main extends React.Component {
     render() {
@@ -17,7 +16,7 @@ export default class Main extends React.Component {
                     <img src={main1} width={'1250'} height={'596'} style={{
                         display: 'block',
                         margin: '0 auto',
-                    }}/>
+                    }} alt={"mainpage"}/>
                 </div>
             </div>
         )

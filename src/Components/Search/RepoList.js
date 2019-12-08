@@ -1,8 +1,8 @@
 import React from "react";
 import '../App';
+import { Link } from 'react-router-dom';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {Button, Card, CardActions, CardContent} from "@material-ui/core";
-import Link from "@material-ui/core/Link";
 import UnStar from "../RepositoriesList/UnStar";
 import Star from "../RepositoriesList/Star";
 
@@ -48,7 +48,7 @@ const RepoList = ({data}) => {
                                     <Link  style={{
                                         fontSize:24
                                     }}
-                                        to={`/repository/${node.url}`}>{node.name}</Link>
+                                        to={`/repository/${node.owner.login}/${node.name}`}>{node.name}</Link>
                                 </CardContent>
                                 <CardActions>
                                     <Button style={{marginTop: '34px'}}>

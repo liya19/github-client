@@ -13,7 +13,6 @@ const Profile = () => {
 
         {({data: {viewer}, loading}) => {
             if (loading || !viewer) {
-                console.log(viewer);
                 return <Loading/>
             }
 
