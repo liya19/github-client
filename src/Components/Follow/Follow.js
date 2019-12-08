@@ -7,6 +7,7 @@ export const FOLLOW = gql`
   mutation($id: ID!) {
     followUser(input: { userId: $id }) {
         user  {
+        id
         login
         name
         avatarUrl
@@ -23,10 +24,7 @@ const Follow = ({node}) => {
     const {id} = node;
     return <Mutation mutation={FOLLOW} variables={{id}}>
         {followUser => (
-            <Button color="action"
-                  onClick={followUser}>
-                Follow
-            </Button>
+            <Button color="action" onClick={followUser}>Follow</Button>
         )}
     </Mutation>
 };

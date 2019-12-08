@@ -7,6 +7,7 @@ export const UN_FOLLOW = gql`
   mutation($id: ID!) {
     unfollowUser(input: { userId: $id }) {
         user  {
+        id
         login
         name
         avatarUrl
