@@ -7,6 +7,8 @@ import Avatar from "@material-ui/core/Avatar";
 import Loading from "../Loading";
 import RepositoryList from "../RepositoriesList/RepositoryList";
 import gql from "graphql-tag";
+import Follow from "../Follow/Follow";
+import Unfollow from "../Follow/UnFollow";
 
 const GET_USER = gql`
 query($id: ID!){
@@ -18,8 +20,8 @@ query($id: ID!){
             avatarUrl
             url
             bio
-            viewerIsFollowing
-            repositories(first: 10
+            viewerIsFollowing          
+                repositories(first: 10
                         orderBy: { direction: DESC, field: STARGAZERS }) {
                 edges {
                     node {
@@ -69,6 +71,7 @@ const User = () => {
                         <Typography component="p">
                             {node.login}
                         </Typography>
+                        {node.viewerIsFollowing ? (<Unfollow node={node}/>) : (<Follow node={node}/>)}
                     </Paper>
                     <Paper>
                         <Paper>

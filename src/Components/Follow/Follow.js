@@ -1,7 +1,7 @@
 import React from "react";
 import gql from "graphql-tag";
 import {Mutation} from "react-apollo";
-import {Icon} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
 
 export const FOLLOW = gql`
   mutation($id: ID!) {
@@ -11,20 +11,8 @@ export const FOLLOW = gql`
         name
         avatarUrl
         url
-        bio
-        repositories(first: 20) {
-        edges {
-          node {
-            id
-            name
-            url
-            viewerHasStarred
-             stargazers{
-            totalCount
-            }
-        }
-      }
-      }
+        bio   
+         viewerIsFollowing       
     }
     }
   }
@@ -35,10 +23,10 @@ const Follow = ({node}) => {
     const {id} = node;
     return <Mutation mutation={FOLLOW} variables={{id}}>
         {followUser => (
-            <Icon color="action"
+            <Button color="action"
                   onClick={followUser}>
-                favorite
-            </Icon>
+                Follow
+            </Button>
         )}
     </Mutation>
 };
