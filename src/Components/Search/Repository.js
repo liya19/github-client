@@ -65,7 +65,7 @@ const Repository = () => {
             return <div>
                 <Paper style={{
                     width: '300px',
-                    height: '400px',
+                    height: '200px',
                     marginTop: '20px',
                     marginLeft: '30px'
                 }}>
@@ -74,6 +74,7 @@ const Repository = () => {
                     </Typography>
                     <Typography component="p">
                         {data.repositoryOwner.repository.description}
+                        
                     </Typography>
                 </Paper>
             </div>
