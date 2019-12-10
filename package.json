@@ -9,6 +9,7 @@
     "@material/top-app-bar": "^4.0.0",
     "apollo-cache-inmemory": "^1.3.6",
     "apollo-client": "^2.4.3",
+    "apollo-link-context": "^1.0.19",
     "apollo-link-http": "^1.5.5",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",

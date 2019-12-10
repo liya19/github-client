@@ -9,6 +9,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import TextField from "@material-ui/core/TextField";
 import DialogActions from "@material-ui/core/DialogActions";
+import { withRouter } from "react-router-dom"
 
 
 const useStyles = makeStyles(theme => ({
@@ -23,9 +24,12 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function ButtonAppBar() {
+function ButtonAppBar({ history }) {
     const [open, setOpen] = React.useState(false);
-
+    const [value, setValue] = React.useState("");
+    const handleInput = (e)=> {
+        setValue(e.target.value);
+    };
 
 
     const handleClickOpen = () => {
@@ -35,8 +39,18 @@ export default function ButtonAppBar() {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const handleSubmit = () => {
+        localStorage.setItem("token", value);
+        setValue("");
+        history.push("/");
+        handleClose();
+    };
     const classes = useStyles();
 
+    const exit =()=>{
+        localStorage.clear();
+    };
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -50,6 +64,7 @@ export default function ButtonAppBar() {
                     <Button color='inherit' href="/searchUser">Search User</Button>
                     <Button color='inherit' href="/profile">Profile</Button>
                     <Button color='inherit' onClick={handleClickOpen}>Login</Button>
+                    <Button  color='inherit' href="/" onClick={exit}>exit</Button>
                 </Toolbar>
             </AppBar>
 
@@ -58,19 +73,21 @@ export default function ButtonAppBar() {
                     <DialogTitle id="form-dialog-title">Login</DialogTitle>
                     <DialogContent>
                         <TextField
+                            value={value}
                             autoFocus
                             margin="dense"
                             id="name"
                             label="Enter token"
                             type="text"
                             fullWidth
+                            onChange={handleInput}
                         />
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={handleClose} color="primary">
                             Cancel
                         </Button>
-                        <Button onClick={handleClose} color="primary">
+                        <Button onClick={handleSubmit} color="primary">
                             Ok
                         </Button>
                     </DialogActions>
@@ -79,3 +96,5 @@ export default function ButtonAppBar() {
         </div>
     );
 }
+
+export default withRouter(ButtonAppBar);

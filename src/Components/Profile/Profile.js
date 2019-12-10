@@ -9,6 +9,7 @@ import RepositoryList from "../RepositoriesList/RepositoryList";
 
 
 const Profile = () => {
+    if (localStorage.getItem("token") == null) return <h1>login ghc</h1>;
     return <Query query={GET_LOGIN}>
 
         {({data: {viewer}, loading}) => {
@@ -48,8 +49,6 @@ const Profile = () => {
         }}
     </Query>
 };
-
-
 
 export default Profile;
 

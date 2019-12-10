@@ -72,7 +72,6 @@ const UserList = ({data}) => {
                                             }}/>
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">
-
                                     {node.bio}
                                 </Typography>
                             </CardContent>
