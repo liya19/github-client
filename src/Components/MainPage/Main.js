@@ -1,21 +1,24 @@
 import React from "react";
 import main1 from "../../image/main1.png"
-import {Typography} from "@material-ui/core";
+import SearchIcon from "@material-ui/core/SvgIcon/SvgIcon";
 
 export default class Main extends React.Component {
     render() {
         return (
             <div>
-                <Typography style={{
+                <h2 style={{
                     textAlign: 'center',
-                    color: 'inherit',
-                    fontSize: '50px',
-                    fontWeight: 'medium'
-                }}>Welcome to Git</Typography>
+                    fontFamily: ' -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
+                    fontSize: 35,
+                    marginLeft: 30,
+                    fontWeight: 'normal',
+                    color: '#24292e'
+                }}>Welcome to GHT<SearchIcon  style={{size:25, color:'#a3aab1'}}/></h2>;
                 <div>
-                    <img src={main1} width={'1250'} height={'596'} style={{
+                    <img src={main1} width={'1255'} height={'600'} style={{
                         display: 'block',
                         margin: '0 auto',
+                        marginTop: -55
                     }} alt={"mainpage"}/>
                 </div>
             </div>

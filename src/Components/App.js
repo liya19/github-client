@@ -1,5 +1,4 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import {
     BrowserRouter as Router,
@@ -15,59 +14,6 @@ import SearchByRepository from "./Search/SearchByRepositories";
 import User from "./Search/User";
 import Repository from "./Search/Repository";
 
-export const STAR_REPOSITORY = gql`
-  mutation($id: ID!) {
-    addStar(input: { starrableId: $id }) {
-      starrable {
-        id
-        viewerHasStarred
-             stargazers{
-            totalCount
-            }
-      }
-    }
-  }
-`;
-
-export const GET_LOGIN = gql`
-   {
-      viewer {
-        login
-        name
-        avatarUrl
-        url
-        bio
-        repositories(first: 20) {
-        edges {
-          node {
-            id
-            name
-            url
-            viewerHasStarred
-             stargazers{
-            totalCount
-            }
-          }
-        }
-      }
-      }
-    }
-`;
-
-export const UNSTAR_REPOSITORY = gql`
-  mutation($id: ID!) {
-    removeStar(input: { starrableId: $id }) {
-      starrable {
-        id
-        viewerHasStarred
-         stargazers{
-            totalCount
-            }
-      }
-    }
-  }
-`;
-
 const App = () => {
     return (
         <Router>
@@ -80,7 +26,7 @@ const App = () => {
                     <User/>
                 </Route>
                 <Route path="/searchUser">
-                <SearchByUser/>
+                    <SearchByUser/>
                 </Route>
                 <Route path="/repository/:login/:name">
                     <Repository/>

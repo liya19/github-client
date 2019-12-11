@@ -13,20 +13,17 @@ query($login: String!, $repo: String!) {
       totalCount
     }
     repository(name: $repo) {
-     id
+      id
       name
-        owner{
-              id
-              login
-          }
       createdAt 
       isArchived
       isPrivate
       url
+      owner{
+       id
+       login
+        }
       description
-      forks {
-        totalCount
-      }
       issues {
         totalCount
       }
@@ -34,9 +31,6 @@ query($login: String!, $repo: String!) {
         totalCount
       }
       watchers {
-        totalCount
-      }
-      pullRequests {
         totalCount
       }
       labels(first:10) {
@@ -61,7 +55,7 @@ query($login: String!, $repo: String!) {
 const Repository = () => {
     let {login, name} = useParams();
     return <Query query={GET_REPOSITORY} variables={{login: login, repo: name}}>
-        {({data,loading}) => {
+        {({data, loading}) => {
             if (loading || !data) {
                 return <Loading/>
             }

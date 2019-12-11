@@ -47,8 +47,8 @@ const RepoList = ({data}) => {
                             <CardContent>
                                 <Link style={{
                                     fontSize: 24
-                                }}
-                                      to={`/repository/${node.owner.login}/${node.name}`}>{node.name}
+                                }} to={`/repository/${node.owner.login}/${node.name}`}>
+                                    {node.name}
                                 </Link>
                             </CardContent>
                             <CardActions>

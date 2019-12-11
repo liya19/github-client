@@ -4,7 +4,7 @@ import Star from "./Star";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {Button, Card, CardActions, CardContent} from "@material-ui/core";
 import UnStar from "./UnStar";
-import Link from "@material-ui/core/Link";
+import {Link} from 'react-router-dom';
 
 
 export const useStyles = makeStyles({
@@ -37,6 +37,11 @@ const RepositoryList = ({data}) => {
     const classes = useStyles();
     return <ul>
         {data.edges.map(({node}) => {
+            let url =(`${node.url}`);
+            let from = url.search('.com/')+5;
+            let to = url.length;
+            let newUrl = url.substring(from, to);
+
             return (
                 <div style={{
                     width: '1400px',
@@ -47,10 +52,12 @@ const RepositoryList = ({data}) => {
                                 <CardContent>
                                     <Link  style={{
                                         fontSize:24
-                                    }}
-                                           to={`/repository/${node.name}`}>{node.name}</Link>
+                                    }} to= {`/repository/${newUrl}`}>
+                                        {node.name}
+                                    </Link>
                                 </CardContent>
                                 <CardActions>
+
                                     <Button style={{marginTop: '34px'}}>
                                         {node.viewerHasStarred ? (<UnStar node={node}/>) : (<Star node={node}/>)}
                                         {node.stargazers.totalCount}

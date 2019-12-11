@@ -1,8 +1,21 @@
 import {Mutation} from "react-apollo";
 import React from "react";
 import {Icon} from "@material-ui/core";
-import {UNSTAR_REPOSITORY} from '../App';
+import gql from "graphql-tag";
 
+export const UNSTAR_REPOSITORY = gql`
+  mutation($id: ID!) {
+    removeStar(input: { starrableId: $id }) {
+      starrable {
+        id
+        viewerHasStarred
+         stargazers{
+            totalCount
+            }
+      }
+    }
+  }
+`;
 const UnStar = ({node}) => {
     const {id} = node;
     return <Mutation mutation={UNSTAR_REPOSITORY} variables={{id}}>

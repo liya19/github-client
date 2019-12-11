@@ -1,15 +1,57 @@
 import {Query} from "react-apollo";
 import React from "react";
-import {GET_LOGIN} from '../App';
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Avatar from "@material-ui/core/Avatar";
 import Loading from "../Loading";
 import RepositoryList from "../RepositoriesList/RepositoryList";
+import profile from "../../image/profile.jpg";
+import SearchIcon from "@material-ui/core/SvgIcon/SvgIcon";
+import gql from "graphql-tag";
 
+export const GET_LOGIN = gql`
+   {
+      viewer {
+        login
+        name
+        avatarUrl
+        url
+        bio
+        repositories(first: 20) {
+        edges {
+          node {
+            id
+            name
+            url
+            viewerHasStarred
+             stargazers{
+            totalCount
+            }
+          }
+        }
+      }
+      }
+    }
+`;
 
 const Profile = () => {
-    if (localStorage.getItem("token") == null) return <h1>login ghc</h1>;
+    if (localStorage.getItem("token") == null)
+        return <div>
+            <h2 style={{
+                textAlign: 'center',
+                fontFamily: ' -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
+                fontSize: 35,
+                marginLeft: 30,
+                fontWeight: 'normal',
+                color: '#24292e'
+            }}>Please log in <SearchIcon style={{size: 25, color: '#a3aab1'}}/>
+            </h2>
+            <img src={profile} width={'650'} height={'540'} style={{
+                display: 'block',
+                margin: '0 auto',
+                marginTop: -10
+            }} alt={"profilepage"}/>
+        </div>
     return <Query query={GET_LOGIN}>
 
         {({data: {viewer}, loading}) => {
