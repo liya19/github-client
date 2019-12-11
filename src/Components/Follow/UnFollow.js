@@ -25,7 +25,12 @@ const Unfollow = ({node}) => {
     return <Mutation mutation={UN_FOLLOW} variables={{id}}>
         {unfollowUser => (
             <Button color="action"
-                  onClick={unfollowUser}>
+                  onClick={unfollowUser}
+                    style={{
+                        width:300,
+                        backgroundColor: '#C0C0C0'
+                    }}
+            >
                 Unfollow
             </Button>
         )}

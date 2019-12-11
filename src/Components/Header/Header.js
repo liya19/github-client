@@ -9,7 +9,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import TextField from "@material-ui/core/TextField";
 import DialogActions from "@material-ui/core/DialogActions";
-import { withRouter } from "react-router-dom"
+import {withRouter} from "react-router-dom"
 
 
 const useStyles = makeStyles(theme => ({
@@ -24,10 +24,10 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function ButtonAppBar({ history }) {
+function ButtonAppBar({history}) {
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState("");
-    const handleInput = (e)=> {
+    const handleInput = (e) => {
         setValue(e.target.value);
     };
 
@@ -48,7 +48,7 @@ function ButtonAppBar({ history }) {
     };
     const classes = useStyles();
 
-    const exit =()=>{
+    const exit = () => {
         localStorage.clear();
     };
     return (
@@ -58,13 +58,13 @@ function ButtonAppBar({ history }) {
                     background: "#2088ff"
                 }}>
                     <Typography variant="h6" className={classes.title}>
-                        <Button  color='inherit' href="/">GHC</Button>
+                        <Button color='inherit' href="/">GHC</Button>
                     </Typography>
                     <Button color='inherit' href="/searchRepository">Search Repository</Button>
                     <Button color='inherit' href="/searchUser">Search User</Button>
                     <Button color='inherit' href="/profile">Profile</Button>
                     <Button color='inherit' onClick={handleClickOpen}>Login</Button>
-                    <Button  color='inherit' href="/" onClick={exit}>exit</Button>
+                    <Button color='inherit' href="/" onClick={exit}>exit</Button>
                 </Toolbar>
             </AppBar>
 

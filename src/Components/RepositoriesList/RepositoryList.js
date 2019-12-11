@@ -48,7 +48,7 @@ const RepositoryList = ({data}) => {
                                     <Link  style={{
                                         fontSize:24
                                     }}
-                                        to={`/repository/${node.name}`}>{node.name}</Link>
+                                           to={`/repository/${node.name}`}>{node.name}</Link>
                                 </CardContent>
                                 <CardActions>
                                     <Button style={{marginTop: '34px'}}>

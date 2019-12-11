@@ -28,6 +28,10 @@ query($id: ID!){
                         id
                         name
                         url
+                         owner {
+                          login
+                          url
+                        }
                         stargazers {
                           totalCount
                         }
@@ -53,26 +57,28 @@ const User = () => {
 
             return (
                 <div>
-                    <Paper style={{
-                        width: '300px',
-                        height: '400px',
-                        marginTop: '20px',
-                        marginLeft: '30px'
-                    }}>
-                        <Avatar src={node.avatarUrl}
-                                variant="rounded"
-                                style={{
-                                    width: '300px',
-                                    height: '340px'
-                                }}/>
-                        <Typography variant="h5" componxent="h3">
-                            {node.name}
-                        </Typography>
-                        <Typography component="p">
-                            {node.login}
-                        </Typography>
-                        {node.viewerIsFollowing ? (<Unfollow node={node}/>) : (<Follow node={node}/>)}
-                    </Paper>
+                        <Paper style={{
+                            width: '300px',
+                            height: '430px',
+                            marginTop: '20px',
+                            marginLeft: '30px'
+                        }}>
+                            <Avatar src={node.avatarUrl}
+                                    variant="rounded"
+                                    style={{
+                                        width: '300px',
+                                        height: '340px'
+                                    }}/>
+                            <Typography variant="h5" componxent="h3">
+                                {node.name}
+                            </Typography>
+                            <Typography component="p">
+                                {node.login}
+                            </Typography>
+                            <Typography>
+                                {node.viewerIsFollowing ? (<Unfollow node={node}/>) : (<Follow node={node}/>)}
+                            </Typography>
+                        </Paper>
                     <Paper>
                         <Paper>
                             <RepositoryList data={node.repositories}/>

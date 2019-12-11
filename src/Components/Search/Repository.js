@@ -15,6 +15,10 @@ query($login: String!, $repo: String!) {
     repository(name: $repo) {
      id
       name
+        owner{
+              id
+              login
+          }
       createdAt 
       isArchived
       isPrivate
@@ -74,7 +78,6 @@ const Repository = () => {
                     </Typography>
                     <Typography component="p">
                         {data.repositoryOwner.repository.description}
-                        
                     </Typography>
                 </Paper>
             </div>
