@@ -5,6 +5,7 @@ import Loading from "../Loading";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import gql from "graphql-tag";
+import {Icon} from "@material-ui/core";
 
 const GET_REPOSITORY = gql`
 query($login: String!, $repo: String!) {
@@ -33,12 +34,17 @@ query($login: String!, $repo: String!) {
       watchers {
         totalCount
       }
-      labels(first:10) {
-        edges {
-          node {
-            name
+      forks{
+      totalCount
+      }
+       commitComments(first: 70) {
+          totalCount
+          edges{
+            node{
+                bodyText
+                createdAt
+            }
           }
-        }
       }
       milestones(first:10) {
         edges {
@@ -62,16 +68,37 @@ const Repository = () => {
 
             return <div>
                 <Paper style={{
-                    width: '300px',
+                    width: '400px',
                     height: '200px',
                     marginTop: '20px',
                     marginLeft: '30px'
                 }}>
-                    <Typography variant="h5" componxent="h3">
-                        {data.repositoryOwner.repository.name}
+                    <Typography variant="h5" componxent="h3" style={{marginBottom: 20}}>
+                      Name:  {data.repositoryOwner.repository.name}
                     </Typography>
-                    <Typography component="p">
-                        {data.repositoryOwner.repository.description}
+                    <Typography component="p" style={{marginBottom: 20}}>
+                        Description: {data.repositoryOwner.repository.description}
+                    </Typography>
+                    <Typography omponent="p">
+                        <Icon style={{
+                            fontSize:18,
+                            marginRight: 4,
+                        }}>visibility</Icon>
+                        Watchers: {data.repositoryOwner.repository.watchers.totalCount}
+                    </Typography>
+                    <Typography omponent="p">
+                        <Icon style={{
+                            fontSize:18,
+                            marginRight: 4,
+                        }}>favorite</Icon>
+                        Stars: {data.repositoryOwner.repository.stargazers.totalCount}
+                    </Typography>
+                    <Typography omponent="p">
+                        <Icon style={{
+                            fontSize:18,
+                            marginRight: 4,
+                        }}>call_split</Icon>
+                        Forks: {data.repositoryOwner.repository.forks.totalCount}
                     </Typography>
                 </Paper>
             </div>
