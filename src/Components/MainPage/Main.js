@@ -13,12 +13,12 @@ export default class Main extends React.Component {
                     marginLeft: 30,
                     fontWeight: 'normal',
                     color: '#24292e'
-                }}>Welcome to GHT<SearchIcon  style={{size:25, color:'#a3aab1'}}/></h2>;
+                }}>Welcome to GHT<SearchIcon  style={{size:25, color:'#a3aab1'}}/></h2>
                 <div>
                     <img src={main1} width={'1255'} height={'600'} style={{
                         display: 'block',
                         margin: '0 auto',
-                        marginTop: -55
+                        marginTop: -30
                     }} alt={"mainpage"}/>
                 </div>
             </div>
