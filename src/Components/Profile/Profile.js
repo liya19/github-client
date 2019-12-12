@@ -7,32 +7,8 @@ import Loading from "../Loading";
 import RepositoryList from "../RepositoriesList/RepositoryList";
 import profile from "../../image/profile.jpg";
 import SearchIcon from "@material-ui/core/SvgIcon/SvgIcon";
-import gql from "graphql-tag";
+import {GET_LOGIN} from "../qraphql/GET_LOGIN";
 
-export const GET_LOGIN = gql`
-   {
-      viewer {
-        login
-        name
-        avatarUrl
-        url
-        bio
-        repositories(first: 20) {
-        edges {
-          node {
-            id
-            name
-            url
-            viewerHasStarred
-             stargazers{
-            totalCount
-            }
-          }
-        }
-      }
-      }
-    }
-`;
 
 const Profile = () => {
     if (localStorage.getItem("token") == null)

@@ -5,7 +5,6 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import Auth from "./Auth/Auth";
 import Profile from "./Profile/Profile";
 import Main from "./MainPage/Main";
 import ButtonAppBar from "./Header/Header";
@@ -19,9 +18,6 @@ const App = () => {
         <Router>
             <ButtonAppBar/>
             <Switch>
-                <Route path="/auth">
-                    <Auth/>
-                </Route>
                 <Route path="/user/:id">
                     <User/>
                 </Route>

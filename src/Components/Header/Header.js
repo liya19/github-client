@@ -51,6 +51,7 @@ function ButtonAppBar({history}) {
     const exit = () => {
         localStorage.clear();
     };
+    const IsTokenValid = () => localStorage.getItem("token") && ((localStorage.getItem("token").length) == 40);
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -60,11 +61,15 @@ function ButtonAppBar({history}) {
                     <Typography variant="h6" className={classes.title}>
                         <Button color='inherit' href="/">GHC</Button>
                     </Typography>
-                    <Button color='inherit' href="/searchRepository">Search Repository</Button>
-                    <Button color='inherit' href="/searchUser">Search User</Button>
-                    <Button color='inherit' href="/profile">Profile</Button>
+                    {IsTokenValid() && (
+                        <React.Fragment>
+                            <Button color='inherit' href="/searchRepository">Search Repository</Button>
+                            <Button color='inherit' href="/searchUser">Search User</Button>
+                            <Button color='inherit' href="/profile">Profile</Button>
+                            <Button color='inherit' href="/" onClick={exit}>Exit</Button>
+                        </React.Fragment>
+                    )}
                     <Button color='inherit' onClick={handleClickOpen}>Login</Button>
-                    <Button color='inherit' href="/" onClick={exit}>exit</Button>
                 </Toolbar>
             </AppBar>
 

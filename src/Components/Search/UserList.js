@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Avatar from "@material-ui/core/Avatar";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import SearchIcon from '@material-ui/icons/Search';
+import styles from '../Search/Style.css'
 
 export const useStyles = makeStyles({
     card: {
@@ -37,13 +38,7 @@ export const useStyles = makeStyles({
 
 const UserList = ({data}) => {
     const classes = useStyles();
-    if (!data.search) return <h2 style={{
-        textAlign: 'center',
-        fontFamily: ' -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji',
-        fontSize: 24,
-        lineHeight: 1.5,
-        color: '#24292e'
-    }}>We couldn’t find <SearchIcon  style={{size:25, color:'#a3aab1'}}/></h2>;
+    if (!data.search) return <h2>We couldn’t find <SearchIcon className={styles.iconStyle}/></h2>;
     return <ul>
         {data.search.edges.map(({node}) => {
             return (

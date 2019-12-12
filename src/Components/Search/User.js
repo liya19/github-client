@@ -6,46 +6,9 @@ import Paper from "@material-ui/core/Paper";
 import Avatar from "@material-ui/core/Avatar";
 import Loading from "../Loading";
 import RepositoryList from "../RepositoriesList/RepositoryList";
-import gql from "graphql-tag";
 import Follow from "../Follow/Follow";
 import Unfollow from "../Follow/UnFollow";
-
-const GET_USER = gql`
-query($id: ID!){
-    node(id: $id) {
-        ... on User {
-            id
-            name
-            login
-            avatarUrl
-            url
-            bio
-            viewerIsFollowing          
-                repositories(first: 10
-                        orderBy: { direction: DESC, field: STARGAZERS }) {
-                edges {
-                    node {
-                        id
-                        name
-                        url
-                         owner {
-                          id
-                          login
-                        }
-                        stargazers {
-                          totalCount
-                        }
-                        viewerHasStarred
-                        watchers {
-                          totalCount
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-`;
+import {GET_USER} from "../qraphql/GET_USER";
 
 const User = () => {
     let {id} = useParams();
@@ -88,7 +51,6 @@ const User = () => {
             );
         }
         }
-
     </Query>
 
 };
