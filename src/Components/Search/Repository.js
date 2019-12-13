@@ -3,7 +3,6 @@ import {useParams} from "react-router-dom";
 import {Query} from "react-apollo";
 import Loading from "../Loading";
 import Typography from "@material-ui/core/Typography";
-import Paper from "@material-ui/core/Paper";
 import {Icon} from "@material-ui/core";
 import { GET_REPOSITORY } from "../qraphql/GET_REPOSITORY";
 
