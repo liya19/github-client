@@ -41,13 +41,13 @@ const Profile = () => {
                         width: '300px',
                         height: '400px',
                         marginTop: '20px',
-                        marginLeft: '30px'
+                        marginLeft: '100px'
                     }}>
                         <Avatar src={viewer.avatarUrl}
                                 variant="rounded"
                                 style={{
                                     width: '300px',
-                                    height: '340px'
+                                    height: '340px',
                                 }}/>
                         <Typography variant="h5" componxent="h3">
                             {viewer.name}

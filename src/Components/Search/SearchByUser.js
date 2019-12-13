@@ -12,10 +12,12 @@ const SearchByUser = () => {
     return (<div>
             <TextField id="standard-basic"
                        value={input}
+                       placeholder="Search"
                        style={{
-                           padding: 5
+                           display: "flex",
+                           alignItems: "center",
+                           height: "100px"
                        }}
-                       label="Search"
                        onChange={event => {
                            setInput(event.target.value);
                        }}> </TextField>

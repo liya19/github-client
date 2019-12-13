@@ -10,10 +10,12 @@ const SearchByRepository = () => {
     const [input, setInput] = useState("");
     return (<div>
             <TextField id="standard-basic"
-                       label="Search"
+                       placeholder="Search"
                        value={input}
                        style={{
-                           padding: 5
+                           display: "flex",
+                           alignItems: "center",
+                           height: "100px"
                        }}
                        onChange={event => {
                            setInput(event.target.value);
