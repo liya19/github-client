@@ -1,5 +1,5 @@
 # GitHub client
-- This is a project that allows you to view repositories, users, make actions: search, likes, follow
+- This is a project that allows you to view repositories, users, make actions such as  search, like, follow
 ## DEMO:
 https://liya19.github.io/github-client/#/
 
