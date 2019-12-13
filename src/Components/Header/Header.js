@@ -67,7 +67,7 @@ function ButtonAppBar({ history, client }) {
                 redirect('/');
                 handleClose();
             })
-            .catch((e) => { console.log(e); setValid(false);});
+            .catch((e) => { setValid(false);});
     };
     const classes = useStyles();
 
