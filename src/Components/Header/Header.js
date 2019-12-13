@@ -9,7 +9,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import TextField from "@material-ui/core/TextField";
 import DialogActions from "@material-ui/core/DialogActions";
-import {withRouter} from "react-router-dom"
+import {withRouter, Link} from "react-router-dom"
 
 
 const useStyles = makeStyles(theme => ({
@@ -35,7 +35,9 @@ function ButtonAppBar({history}) {
     const handleClickOpen = () => {
         setOpen(true);
     };
-
+    const redirect = (to) => {
+        history.push(to);
+    };
     const handleClose = () => {
         setOpen(false);
     };
@@ -43,13 +45,14 @@ function ButtonAppBar({history}) {
     const handleSubmit = () => {
         localStorage.setItem("token", value);
         setValue("");
-        history.push("/");
+        redirect("/");
         handleClose();
     };
     const classes = useStyles();
 
     const exit = () => {
         localStorage.clear();
+        redirect("/");
     };
     const IsTokenValid = () => localStorage.getItem("token") && ((localStorage.getItem("token").length) == 40);
     return (
@@ -59,17 +62,17 @@ function ButtonAppBar({history}) {
                     background: "#2088ff"
                 }}>
                     <Typography variant="h6" className={classes.title}>
-                        <Button color='inherit' href="/">GHC</Button>
+                        <Button color='inherit' onClick={()=>redirect('/')}>GHC</Button>
                     </Typography>
-                    {IsTokenValid() && (
+                    {IsTokenValid() ? (
                         <React.Fragment>
-                            <Button color='inherit' href="/searchRepository">Search Repository</Button>
-                            <Button color='inherit' href="/searchUser">Search User</Button>
-                            <Button color='inherit' href="/profile">Profile</Button>
-                            <Button color='inherit' href="/" onClick={exit}>Exit</Button>
+                            <Button color='inherit' onClick={()=>redirect("/searchRepository")}>Search Repository</Button>
+                            <Button color='inherit' onClick={()=>redirect("/searchUser")}>Search User</Button>
+                            <Button color='inherit' onClick={()=>redirect("/profile")} >Profile</Button>
+                            <Button color='inherit' onClick={exit}>Exit</Button>
                         </React.Fragment>
-                    )}
-                    <Button color='inherit' onClick={handleClickOpen}>Login</Button>
+                    ) :  <Button color='inherit' onClick={handleClickOpen}>Login</Button>}
+
                 </Toolbar>
             </AppBar>
 

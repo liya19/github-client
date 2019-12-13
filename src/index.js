@@ -8,6 +8,8 @@ import { setContext } from 'apollo-link-context';
 import App from './Components/App';
 import registerServiceWorker from './registerServiceWorker';
 
+import "./index.css"
+
 const cache = new InMemoryCache();
 
 const GITHUB_BASE_URL = 'https://api.github.com/graphql';

@@ -1,7 +1,7 @@
 import React from 'react';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route
 } from "react-router-dom";
@@ -21,7 +21,7 @@ const App = () => {
                 <Route path="/user/:id">
                     <User/>
                 </Route>
-                <Route path="/searchUser">
+                <Route path="/searchUser/">
                     <SearchByUser/>
                 </Route>
                 <Route path="/repository/:login/:name">
