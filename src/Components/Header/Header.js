@@ -74,7 +74,7 @@ function ButtonAppBar({ history, client }) {
     const exit = () => {
         localStorage.clear();
         setLogin(false);
-        redirect('/');
+        redirect('/main');
         client.resetStore();
     };
     return (
@@ -86,7 +86,7 @@ function ButtonAppBar({ history, client }) {
                     }}
                 >
                     <Typography variant="h6" className={classes.title}>
-                        <Button color="inherit" onClick={() => redirect('/')}>
+                        <Button color="inherit" onClick={() => redirect('/main')}>
                             GHC
                         </Button>
                     </Typography>

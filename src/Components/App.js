@@ -12,6 +12,7 @@ import SearchByUser from "./Search/SearchByUser";
 import SearchByRepository from "./Search/SearchByRepositories";
 import User from "./Search/User";
 import Repository from "./Search/Repository";
+import NoMatch from "./NoMatch";
 
 const App = () => {
     return (
@@ -33,8 +34,11 @@ const App = () => {
                 <Route path="/profile">
                     <Profile/>
                 </Route>
-                <Route path="/">
+                <Route path="/main">
                     <Main/>
+                </Route>
+                <Route path="*">
+                    <NoMatch/>
                 </Route>
             </Switch>
         </Router>
